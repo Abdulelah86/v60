@@ -3,300 +3,227 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>دليل V60</title>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<title>V60</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  /* Light, high-contrast warm coffee palette */
-  --bg:#f4f6f8;
-  --surface:#ffffff;
-  --surface-2:#eaeef2;
-  --border:#d7dee5;
-  --espresso:#1f2933;
-  --espresso-soft:#475569;
-  --amber:#2563eb;
-  --amber-deep:#1d4ed8;
-  --amber-bg:#dbe9ff;
-  --gold:#0f766e;
-  --gold-bg:#d8f1ee;
-  --mu:#64748b;
-  --dim:#8794a3;
-  --green:#15803d;
-  --green-bg:#dcf5e3;
-  --red:#b3261e;
+  --bg:#f5f5f5;
+  --surface:#fff;
+  --border:#e0e0e0;
+  --text:#1a1a1a;
+  --muted:#666;
+  --dim:#999;
   --blue:#2563eb;
-  --blue-bg:#dbe9ff;
-  --wait:#7a8696;
-  --wait-bg:#e7eaee;
-  --wait-text:#3f4954;
+  --blue-bg:#eff6ff;
+  --red:#dc2626;
+  --red-bg:#fef2f2;
+  --green:#16a34a;
+  --green-bg:#f0fdf4;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--bg);color:var(--espresso);font-family:'Tajawal',sans-serif;min-height:100vh;direction:rtl;}
+body{background:var(--bg);color:var(--text);font-family:'Tajawal',sans-serif;min-height:100vh;direction:rtl;font-size:15px;}
 
-nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;
-  background:var(--surface);border-bottom:1px solid var(--border);
-  position:sticky;top:0;z-index:200;}
-.logo{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--amber-deep);letter-spacing:1px;}
-.logo span{color:var(--mu);font-size:.68rem;display:block;font-family:'Tajawal',sans-serif;}
-.ntabs{display:flex;gap:3px;}
-.ntab{padding:7px 13px;border-radius:16px;border:none;background:transparent;color:var(--mu);
-  font-family:'Tajawal',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;}
-.ntab:hover{color:var(--espresso);background:var(--surface-2);}
-.ntab.active{background:var(--amber);color:#fff;}
+/* NAV */
+nav{background:var(--surface);border-bottom:1px solid var(--border);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:100;}
+.logo{font-weight:800;font-size:1.1rem;color:var(--text);}
+.ntabs{display:flex;gap:2px;}
+.ntab{padding:6px 12px;border-radius:8px;border:none;background:transparent;color:var(--muted);font-family:'Tajawal',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .15s;}
+.ntab:hover{color:var(--text);background:var(--bg);}
+.ntab.active{background:var(--blue);color:#fff;}
 
-.page{display:none;padding:18px;max-width:620px;margin:0 auto;animation:fi .25s ease;}
+/* PAGES */
+.page{display:none;max-width:560px;margin:0 auto;padding:20px;}
 .page.active{display:block;}
-@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-.ptitle{font-size:.9rem;color:var(--mu);margin-bottom:3px;font-weight:600;}
-.phead{font-size:1.55rem;font-weight:800;margin-bottom:18px;color:var(--espresso);}
 
-.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px;margin-bottom:8px;}
-.clbl{font-size:.72rem;color:var(--mu);letter-spacing:.5px;font-weight:700;margin-bottom:8px;display:block;}
+/* SECTION */
+.sec{margin-bottom:20px;}
+.sec-label{font-size:.72rem;font-weight:700;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px;display:block;}
 
-.pills{display:flex;gap:6px;flex-wrap:wrap;}
-.pill{padding:7px 14px;border-radius:16px;border:1.5px solid var(--border);
-  background:var(--surface);color:var(--espresso-soft);font-family:'Tajawal',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .15s;}
-.pill:hover{border-color:var(--amber);background:var(--surface-2);}
-.pill.active{background:var(--amber);color:#fff;border-color:var(--amber);font-weight:800;}
-
-input[type=number],input[type=text],textarea,select{
-  background:var(--surface);border:1.5px solid var(--border);border-radius:9px;
-  color:var(--espresso);font-family:'Tajawal',sans-serif;font-size:1rem;padding:10px 13px;
-  outline:none;transition:border-color .2s;direction:rtl;}
-input:focus,textarea:focus,select:focus{border-color:var(--amber);}
+/* SELECT */
+select{width:100%;background:var(--surface);border:1.5px solid var(--border);border-radius:10px;color:var(--text);font-family:'Tajawal',sans-serif;font-size:.95rem;font-weight:600;padding:10px 14px;outline:none;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23999' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:left 12px center;}
+select:focus{border-color:var(--blue);}
 select option{background:#fff;}
 
-.wrow{display:flex;align-items:center;gap:10px;}
-.wrow input{font-size:1.9rem;font-weight:800;width:115px;text-align:center;color:var(--amber-deep);}
-.ulbl{font-size:.9rem;color:var(--mu);font-weight:600;}
+/* WATER INPUT */
+.water-row{display:flex;align-items:center;gap:10px;}
+.water-row input{width:100px;background:var(--surface);border:1.5px solid var(--border);border-radius:10px;color:var(--text);font-family:'Tajawal',sans-serif;font-size:1.6rem;font-weight:800;padding:8px 10px;outline:none;text-align:center;}
+.water-row input:focus{border-color:var(--blue);}
+.water-unit{font-size:.9rem;color:var(--muted);font-weight:600;}
 
-.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px;}
-.rc{background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:13px 8px;text-align:center;}
-.rc .v{font-size:1.6rem;font-weight:800;color:var(--amber-deep);line-height:1;}
-.rc .u{font-size:.8rem;color:var(--mu);font-weight:600;}
-.rc .l{font-size:.68rem;color:var(--dim);margin-top:2px;}
+/* STATS ROW */
+.stats{display:flex;gap:8px;margin-bottom:20px;}
+.stat{flex:1;background:var(--surface);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center;}
+.stat .v{font-size:1.4rem;font-weight:800;color:var(--blue);line-height:1;}
+.stat .l{font-size:.68rem;color:var(--muted);margin-top:2px;font-weight:600;}
 
-/* INFO PANEL */
-.info-panel{border-radius:10px;padding:10px 13px;margin-bottom:9px;border:1.5px solid var(--border);background:var(--surface-2);}
-.info-row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:4px;font-size:.82rem;}
-.info-row:last-child{margin-bottom:0;}
-.info-lbl{color:var(--mu);font-weight:600;flex-shrink:0;}
-.info-val{color:var(--espresso);font-weight:800;text-align:left;}
-.info-val.amber{color:var(--amber-deep);}
-.info-val.gold{color:var(--gold);}
-.info-divider{height:1px;background:var(--border);margin:8px 0;}
+/* INFO CARD */
+.info-card{background:var(--surface);border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:20px;font-size:.82rem;color:var(--muted);line-height:1.55;}
+.info-card b{color:var(--text);}
+.info-card .grind-highlight{display:inline-block;background:var(--blue-bg);color:var(--blue);font-weight:800;padding:1px 8px;border-radius:6px;font-size:.9rem;margin-bottom:4px;}
 
-/* GRIND BOX */
-.grind-box{background:var(--blue-bg);border:1.5px solid #b9d6ef;border-radius:10px;padding:10px 13px;margin-bottom:9px;}
-.grind-box .gb-title{font-size:.74rem;color:var(--blue);font-weight:800;margin-bottom:9px;}
-.grind-row{display:flex;gap:8px;}
-.grind-chip{flex:1;text-align:center;background:#fff;border-radius:9px;padding:9px 4px;border:1.5px solid #d3e6f7;}
-.grind-chip.sel{border-color:var(--blue);background:#dceefb;}
-.grind-chip .gnum{font-size:1.3rem;font-weight:800;color:var(--blue);line-height:1;}
-.grind-chip .groast{font-size:.66rem;color:var(--mu);margin-top:2px;font-weight:600;}
-.grind-tip{font-size:.76rem;color:var(--espresso-soft);margin-top:9px;line-height:1.55;}
-.grind-tip b{color:var(--amber-deep);}
+/* ICE INFO */
+.ice-info{background:#f0f9ff;border:1.5px solid #bae6fd;border-radius:10px;padding:12px 14px;margin-bottom:14px;font-size:.84rem;}
+.ice-info .row{display:flex;justify-content:space-between;margin-bottom:4px;}
+.ice-info .row:last-child{margin-bottom:0;}
+.ice-info .lbl{color:var(--muted);font-weight:600;}
+.ice-info .val{font-weight:800;color:#0369a1;}
 
-.bbtn{width:100%;padding:16px;background:var(--amber);color:#fff;border:none;
-  border-radius:13px;font-family:'Tajawal',sans-serif;font-size:1.08rem;font-weight:800;
-  cursor:pointer;transition:all .2s;margin-bottom:18px;box-shadow:0 4px 12px rgba(37,99,235,.25);}
-.bbtn:hover{background:var(--amber-deep);transform:translateY(-1px);}
+/* BREW BTN */
+.brew-btn{width:100%;padding:14px;background:var(--blue);color:#fff;border:none;border-radius:12px;font-family:'Tajawal',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;transition:all .15s;margin-bottom:20px;}
+.brew-btn:hover{background:#1d4ed8;}
 
-/* ── TIMER (in-page) ── */
+/* TIMER SECTION */
 #tsec{display:none;}
-
-.abar{display:none;background:var(--amber-bg);border:1.5px solid var(--amber);
-  border-radius:9px;padding:10px 14px;margin-bottom:12px;font-size:.87rem;font-weight:700;color:var(--amber-deep);animation:pb .8s ease 3;}
+.abar{display:none;background:#fef3c7;border:1.5px solid #f59e0b;border-radius:9px;padding:9px 13px;margin-bottom:12px;font-size:.85rem;font-weight:700;color:#92400e;}
 .abar.show{display:block;}
-@keyframes pb{0%,100%{border-color:var(--amber);}50%{border-color:var(--gold);box-shadow:0 0 12px rgba(37,99,235,.25);}}
 
-/* ── FLOATING TIMER BUBBLE ── */
-#float-timer{
-  display:none;
-  position:fixed;
-  bottom:24px;
-  left:20px;
-  z-index:300;
-  background:var(--espresso);
-  color:#fff;
-  border-radius:16px;
-  padding:10px 16px;
-  box-shadow:0 4px 20px rgba(15,23,42,.3);
-  cursor:pointer;
-  user-select:none;
-  transition:opacity .2s;
-  min-width:90px;
-  text-align:center;
-}
-#float-timer.show{display:block;}
-#float-timer:hover{opacity:.85;}
-.ft-time{font-size:1.8rem;font-weight:800;line-height:1;font-family:'Tajawal',sans-serif;}
-.ft-action{font-size:.72rem;font-weight:700;margin-top:2px;}
-.ft-action.p{color:#ffd9a8;}
-.ft-action.w{color:#ffb4af;}
-.ft-action.f{color:#9fe8be;}
-.ft-btns{display:flex;gap:5px;margin-top:7px;justify-content:center;}
-.ft-btn{flex:1;padding:5px;border-radius:8px;border:none;
-  background:rgba(255,255,255,.12);color:#fff;font-size:.85rem;
-  cursor:pointer;transition:background .15s;font-family:'Tajawal',sans-serif;font-weight:700;}
-.ft-btn:hover{background:rgba(255,255,255,.22);}
-.ft-btn.go{background:#2e9e63;}
-.ft-btn.go:hover{background:#27804f;}
+/* STEPS */
+.steps{display:flex;flex-direction:column;gap:8px;}
+.sc{background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:12px 14px;opacity:.45;transition:all .25s;}
+.sc.active{opacity:1;border-color:var(--blue);}
+.sc.active.is-wait{border-color:var(--red);}
+.sc.done{opacity:.25;background:var(--bg);}
 
-/* ── STEPS ── */
-.sc{background:var(--surface);border:1.5px solid var(--border);border-radius:11px;
-  padding:10px 13px;margin-bottom:7px;opacity:.55;transition:all .3s;}
-.sc.active{opacity:1;border-color:var(--amber);background:var(--amber-bg);box-shadow:0 2px 10px rgba(37,99,235,.15);}
-.sc.active.is-wait{border-color:var(--red);background:var(--wait-bg);box-shadow:0 2px 10px rgba(179,38,30,.12);}
-.sc.done{opacity:.4;background:var(--surface-2);}
-.sc-row{display:flex;align-items:center;gap:10px;}
-.sc-time{font-size:.85rem;font-weight:800;color:var(--amber-deep);white-space:nowrap;min-width:74px;}
-.sc.is-wait .sc-time{color:var(--red);}
-.achip{font-size:.68rem;font-weight:800;padding:3px 9px;border-radius:7px;flex-shrink:0;white-space:nowrap;}
-.achip.pour{background:var(--amber);color:#fff;}
-.achip.wait{background:var(--red);color:#fff;}
-.sc-name{font-weight:800;font-size:.86rem;color:var(--espresso);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.sc-tgt{font-size:.86rem;font-weight:800;color:var(--gold);white-space:nowrap;flex-shrink:0;}
-.sc.is-wait .sc-tgt{color:var(--red);}
-.sc-now{font-size:.65rem;color:var(--green);font-weight:800;background:var(--green-bg);padding:1px 7px;border-radius:7px;flex-shrink:0;}
-.sc-desc{font-size:.76rem;color:var(--espresso-soft);line-height:1.4;margin-top:5px;}
+/* STEP TOP ROW */
+.sc-top{display:flex;align-items:center;gap:8px;}
+.sc-chip{font-size:.68rem;font-weight:800;padding:3px 8px;border-radius:6px;flex-shrink:0;}
+.sc-chip.pour{background:var(--blue);color:#fff;}
+.sc-chip.wait{background:var(--red);color:#fff;}
+.sc-title{font-weight:800;font-size:.9rem;flex:1;}
+.sc-timing{font-size:.8rem;font-weight:700;color:var(--muted);white-space:nowrap;}
+.sc.active .sc-timing{color:var(--blue);}
+.sc.active.is-wait .sc-timing{color:var(--red);}
 
-/* METHOD EXPLANATION */
-.method-info{background:var(--surface-2);border:1.5px solid var(--border);border-radius:10px;padding:10px 13px;margin-bottom:9px;font-size:.79rem;color:var(--espresso-soft);line-height:1.5;}
-.method-info b{color:var(--amber-deep);}
+/* TARGET */
+.sc-target{font-size:.82rem;font-weight:800;color:var(--blue);margin-top:5px;}
+.sc.is-wait .sc-target{display:none;}
+.sc-desc{font-size:.76rem;color:var(--muted);margin-top:4px;line-height:1.45;}
+
+/* ACTIVE TIMER INSIDE STEP */
+.sc-timer{display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--border);}
+.sc.active .sc-timer{display:flex;align-items:center;gap:12px;}
+.sc.active.is-wait .sc-timer{border-top-color:rgba(220,38,38,.2);}
+.st-time{font-size:2rem;font-weight:800;color:var(--text);line-height:1;min-width:66px;}
+.st-pb-wrap{flex:1;}
+.st-label{font-size:.72rem;font-weight:700;color:var(--muted);margin-bottom:4px;}
+.st-pb{height:5px;background:var(--border);border-radius:3px;overflow:hidden;}
+.st-pbf{height:100%;border-radius:3px;transition:width .5s linear;}
+.st-pbf.pour{background:var(--blue);}
+.st-pbf.wait{background:var(--red);}
+.st-btn{width:44px;height:44px;border-radius:10px;border:none;cursor:pointer;font-size:1.1rem;font-weight:800;transition:all .15s;flex-shrink:0;font-family:'Tajawal',sans-serif;}
+.st-btn.go{background:var(--green);color:#fff;}
+.st-btn.go:hover{background:#15803d;}
+.st-btn.reset{background:var(--bg);border:1.5px solid var(--border);color:var(--muted);}
+.st-btn.reset:hover{color:var(--text);}
 
 /* COFFEES PAGE */
-.cgrid{display:grid;gap:8px;}
-.ccard{background:var(--surface);border:1.5px solid var(--border);border-radius:11px;
-  padding:11px 13px;cursor:pointer;transition:all .15s;display:flex;align-items:flex-start;gap:10px;}
-.ccard:hover{border-color:var(--amber);transform:translateY(-2px);box-shadow:0 4px 12px rgba(37,99,235,.12);}
-.cicon{font-size:1.6rem;width:38px;text-align:center;flex-shrink:0;}
-.cinfo h3{font-size:.92rem;font-weight:800;margin-bottom:2px;color:var(--espresso);}
-.cinfo p{font-size:.76rem;color:var(--espresso-soft);line-height:1.4;}
-.cinfo p strong{color:var(--mu);font-weight:700;}
-.cmeta{font-size:.69rem;color:var(--amber-deep);margin-top:4px;font-weight:700;}
-.bcustom{background:var(--gold);color:#fff;font-size:.6rem;padding:2px 7px;border-radius:7px;font-weight:800;margin-left:5px;}
+.coffee-list{display:flex;flex-direction:column;gap:7px;}
+.cc{background:var(--surface);border:1.5px solid var(--border);border-radius:11px;padding:12px 14px;cursor:pointer;transition:all .15s;}
+.cc:hover{border-color:var(--blue);}
+.cc-top{display:flex;align-items:center;gap:10px;margin-bottom:3px;}
+.cc-icon{font-size:1.5rem;}
+.cc-name{font-weight:800;font-size:.95rem;}
+.cc-sub{font-size:.76rem;color:var(--muted);}
+.cc-grind{font-size:.72rem;color:var(--blue);font-weight:700;margin-top:4px;}
+.custom-tag{background:var(--blue);color:#fff;font-size:.6rem;padding:1px 6px;border-radius:5px;font-weight:800;margin-right:5px;}
 
-/* ADD */
-.adjust-card{background:var(--surface);border:1.5px solid var(--border);border-radius:11px;padding:13px;margin-bottom:8px;}
-.adjust-card h3{font-size:.85rem;color:var(--amber-deep);font-weight:800;margin-bottom:10px;}
-.fg{margin-bottom:8px;}
-.fg label{display:block;font-size:.74rem;color:var(--mu);margin-bottom:3px;font-weight:600;}
-.fg input,.fg textarea,.fg select{width:100%;}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-textarea{resize:vertical;min-height:58px;line-height:1.5;}
+/* ADD PAGE */
+.add-form{background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:16px;}
+.fg{margin-bottom:12px;}
+.fg label{display:block;font-size:.75rem;color:var(--muted);font-weight:700;margin-bottom:4px;}
+.fg input,.fg textarea{width:100%;background:var(--bg);border:1.5px solid var(--border);border-radius:9px;color:var(--text);font-family:'Tajawal',sans-serif;font-size:.92rem;padding:9px 12px;outline:none;}
+.fg input:focus,.fg textarea:focus{border-color:var(--blue);background:var(--surface);}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+textarea{resize:vertical;min-height:60px;line-height:1.5;}
+.save-btn{width:100%;padding:13px;background:var(--blue);color:#fff;border:none;border-radius:11px;font-family:'Tajawal',sans-serif;font-size:.95rem;font-weight:800;cursor:pointer;margin-top:4px;}
+.save-btn:hover{background:#1d4ed8;}
 
-.svbtn{width:100%;padding:14px;background:var(--amber);color:#fff;border:none;border-radius:12px;
-  font-family:'Tajawal',sans-serif;font-size:.97rem;font-weight:800;cursor:pointer;transition:all .2s;margin-top:5px;}
-.svbtn:hover{background:var(--amber-deep);}
-
-.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);
-  background:var(--espresso);color:#fff;padding:11px 24px;border-radius:24px;
-  font-weight:700;font-size:.85rem;transition:transform .3s ease;z-index:999;white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,.2);}
+/* TOAST */
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--text);color:#fff;padding:10px 22px;border-radius:22px;font-weight:700;font-size:.84rem;transition:transform .3s;z-index:999;white-space:nowrap;}
 .toast.show{transform:translateX(-50%) translateY(0);}
 
 @media(max-width:480px){
-  nav{flex-wrap:wrap;gap:6px;}
-  .rgrid{grid-template-columns:1fr 1fr;}
-  .rgrid .rc:last-child{grid-column:span 2;}
+  .stats{flex-wrap:wrap;}
+  .stat{min-width:calc(33% - 6px);}
   .frow{grid-template-columns:1fr;}
-  .mb-time{font-size:1.25rem;min-width:52px;}
-  .mb-action{font-size:.85rem;}
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="logo">V60<span>دليل القهوة المُقطَّرة</span></div>
+  <div class="logo">V60 ☕</div>
   <div class="ntabs">
-    <button class="ntab active" onclick="showPage('brew')">☕ التحضير</button>
-    <button class="ntab" onclick="showPage('coffees')">🫘 القهوة</button>
-    <button class="ntab" onclick="showPage('add')">➕ أضف</button>
+    <button class="ntab active" onclick="showPage('brew')">التحضير</button>
+    <button class="ntab" onclick="showPage('coffees')">القهوة</button>
+    <button class="ntab" onclick="showPage('add')">+ أضف</button>
   </div>
 </nav>
 
-<!-- ═══ BREW ═══ -->
+<!-- BREW -->
 <div id="page-brew" class="page active">
-  <p class="ptitle">ابدأ الحين</p>
-  <h1 class="phead">احسبلي الجرعة</h1>
 
-  <div class="card">
-    <span class="clbl">نوع القهوة</span>
-    <div class="pills" id="coffee-chips"></div>
+  <div class="sec">
+    <span class="sec-label">نوع القهوة</span>
+    <select id="sel-coffee" onchange="onCoffeeChange()"></select>
   </div>
 
-  <div class="card">
-    <span class="clbl">درجة الحمص</span>
-    <div class="pills" id="roast-chips">
-      <button class="pill active" data-roast="light"  onclick="selRoast(this)">☀️ فاتح</button>
-      <button class="pill"        data-roast="medium" onclick="selRoast(this)">🌤 وسط</button>
-      <button class="pill"        data-roast="dark"   onclick="selRoast(this)">🌑 غامق</button>
-    </div>
+  <div class="sec">
+    <span class="sec-label">درجة الحمص</span>
+    <select id="sel-roast" onchange="calcAll()">
+      <option value="light">☀️ فاتح</option>
+      <option value="medium">🌤 وسط</option>
+      <option value="dark">🌑 غامق</option>
+    </select>
   </div>
 
-  <div class="card">
-    <span class="clbl">طريقة التحضير</span>
-    <div class="pills" style="margin-bottom:10px;" id="method-chips">
-      <button class="pill active" data-method="kasuya"   onclick="selMethod(this)">🏆 Kasuya 4:6</button>
-      <button class="pill"        data-method="hoffmann" onclick="selMethod(this)">🎯 Hoffmann</button>
-      <button class="pill"        data-method="icedrip"  onclick="selMethod(this)">🧊 Ice Drip</button>
-    </div>
-    <div class="method-info" id="method-info"></div>
+  <div class="sec">
+    <span class="sec-label">طريقة التحضير</span>
+    <select id="sel-method" onchange="calcAll()">
+      <option value="kasuya">🏆 Kasuya 4:6 — بطل العالم 2016</option>
+      <option value="hoffmann">🎯 Hoffmann — بطل العالم 2007</option>
+      <option value="icedrip">🧊 Ice Drip — قهوة مثلجة</option>
+    </select>
   </div>
 
-  <div class="card">
-    <span class="clbl" id="water-clbl">كمية الماء</span>
-    <div class="wrow">
+  <div class="sec">
+    <span class="sec-label" id="water-lbl">كمية الماء</span>
+    <div class="water-row">
       <input type="number" id="water-ml" value="300" min="100" max="1000" step="10" oninput="calcAll()">
-      <span class="ulbl">مل ماء</span>
+      <span class="water-unit">مل ماء</span>
     </div>
   </div>
 
-  <div class="card" id="ice-card" style="display:none;background:var(--blue-bg);border-color:#b9d6ef;">
-    <span class="clbl" style="color:var(--blue);">🧊 الثلج</span>
-    <div class="info-row"><span class="info-lbl">ماء حار يصب</span><span class="info-val amber" id="ice-hotwater">—</span></div>
-    <div class="info-row"><span class="info-lbl">ثلج بالإبريق (قبل الصب)</span><span class="info-val gold" id="ice-amount">—</span></div>
-    <div class="info-row"><span class="info-lbl">النسبة النهائية الفعلية</span><span class="info-val" id="ice-final-ratio">—</span></div>
+  <div id="ice-card" style="display:none;" class="ice-info">
+    <div class="row"><span class="lbl">ماء حار يصب</span><span class="val" id="ice-hot">—</span></div>
+    <div class="row"><span class="lbl">ثلج بالإبريق قبل البداية</span><span class="val" id="ice-ice">—</span></div>
   </div>
 
-  <div class="rgrid">
-    <div class="rc"><div class="v" id="r-coffee">—</div><div class="u">جرام</div><div class="l">القهوة</div></div>
-    <div class="rc"><div class="v" id="r-ratio">—</div><div class="u">نسبة</div><div class="l">ماء:قهوة</div></div>
-    <div class="rc"><div class="v" id="r-temp">—</div><div class="u">°م</div><div class="l">الحرارة</div></div>
+  <div class="stats">
+    <div class="stat"><div class="v" id="r-coffee">—</div><div class="l">جرام قهوة</div></div>
+    <div class="stat"><div class="v" id="r-ratio">—</div><div class="l">نسبة</div></div>
+    <div class="stat"><div class="v" id="r-temp">—</div><div class="l">°م</div></div>
   </div>
 
-  <div class="info-panel" id="info-panel"></div>
+  <div class="info-card" id="info-card"></div>
 
-  <div class="grind-box">
-    <div class="gb-title">🔩 Fellow — إعداد الطحنة</div>
-    <div class="grind-row" id="grind-row"></div>
-    <div class="grind-tip" id="grind-tip"></div>
-  </div>
+  <button class="brew-btn" onclick="startBrew()">☕ ابدأ التحضير</button>
 
-  <button class="bbtn" onclick="startBrew()">☕ ابدأ التحضير</button>
-
-  <!-- TIMER -->
   <div id="tsec">
     <div class="abar" id="abar"></div>
-    <div id="steps-list"></div>
+    <div class="steps" id="steps-list"></div>
   </div>
+
 </div>
 
-<!-- ═══ COFFEES ═══ -->
+<!-- COFFEES -->
 <div id="page-coffees" class="page">
-  <p class="ptitle">مكتبتك</p>
-  <h1 class="phead">أنواع القهوة</h1>
-  <div class="cgrid" id="coffee-grid"></div>
+  <div class="coffee-list" id="coffee-list"></div>
 </div>
 
-<!-- ═══ ADD ═══ -->
+<!-- ADD -->
 <div id="page-add" class="page">
-  <p class="ptitle">أضف نوع جديد</p>
-  <h1 class="phead">قهوة جديدة</h1>
-
-  <div class="adjust-card">
-    <h3>معلومات القهوة</h3>
+  <div class="add-form">
     <div class="frow">
       <div class="fg"><label>اسم القهوة</label><input type="text" id="f-name" placeholder="إثيوبي يرغاشيف"></div>
       <div class="fg"><label>الإيموجي</label><input type="text" id="f-icon" placeholder="🫘" maxlength="4" style="text-align:center;font-size:1.3rem;"></div>
@@ -304,215 +231,212 @@ textarea{resize:vertical;min-height:58px;line-height:1.5;}
     <div class="fg"><label>الأصل</label><input type="text" id="f-origin" placeholder="إثيوبيا — يرغاشيف"></div>
     <div class="fg"><label>النكهات</label><textarea id="f-desc" placeholder="فاكهة حمراء، ياسمين..."></textarea></div>
     <div class="frow">
-      <div class="fg"><label>نسبة ماء:قهوة — ☀️ فاتح</label><input type="number" id="f-light" placeholder="16.7" step="0.5" min="12" max="20"></div>
-      <div class="fg"><label>نسبة ماء:قهوة — 🌤 وسط</label><input type="number" id="f-medium" placeholder="15" step="0.5" min="12" max="20"></div>
+      <div class="fg"><label>نسبة — ☀️ فاتح</label><input type="number" id="f-light" placeholder="16.7" step="0.5"></div>
+      <div class="fg"><label>نسبة — 🌤 وسط</label><input type="number" id="f-medium" placeholder="15" step="0.5"></div>
     </div>
     <div class="frow">
-      <div class="fg"><label>نسبة ماء:قهوة — 🌑 غامق</label><input type="number" id="f-dark" placeholder="14" step="0.5" min="12" max="20"></div>
-      <div class="fg"><label>درجة الحرارة °م</label><input type="number" id="f-temp" placeholder="93" min="80" max="100"></div>
+      <div class="fg"><label>نسبة — 🌑 غامق</label><input type="number" id="f-dark" placeholder="14" step="0.5"></div>
+      <div class="fg"><label>حرارة °م</label><input type="number" id="f-temp" placeholder="93"></div>
     </div>
     <div class="frow">
-      <div class="fg"><label>Fellow — فاتح</label><input type="text" id="f-gl" placeholder="4-5"></div>
-      <div class="fg"><label>Fellow — وسط</label><input type="text" id="f-gm" placeholder="5-6"></div>
+      <div class="fg"><label>Fellow طحنة — فاتح</label><input type="text" id="f-gl" placeholder="6"></div>
+      <div class="fg"><label>Fellow طحنة — وسط</label><input type="text" id="f-gm" placeholder="6.5"></div>
     </div>
-    <div class="fg"><label>Fellow — غامق</label><input type="text" id="f-gd" placeholder="6-7"></div>
-    <div class="fg"><label>وصف الطحنة</label><input type="text" id="f-gdesc" placeholder="مثل ملح البحر الناعم"></div>
-  </div>
-
-  <button class="svbtn" onclick="saveCoffee()">💾 احفظ القهوة</button>
-</div>
-
-<!-- FLOATING TIMER -->
-<div id="float-timer">
-  <div class="ft-time" id="ft-time">0:00</div>
-  <div class="ft-action p" id="ft-action">جاهز</div>
-  <div class="ft-btns">
-    <button class="ft-btn go" id="sbtn" onclick="toggleTimer()">▶</button>
-    <button class="ft-btn" onclick="resetTimer()">↺</button>
+    <div class="fg"><label>Fellow طحنة — غامق</label><input type="text" id="f-gd" placeholder="7"></div>
+    <button class="save-btn" onclick="saveCoffee()">💾 احفظ</button>
   </div>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-// ══════════════════════════════════════
+// ══════════════════════
 //  COFFEE DATA
-// ══════════════════════════════════════
+// ══════════════════════
 const COFFEES = [
   {
-    id:'ethiopian', name:'إثيوبي', icon:'🇪🇹',
+    id:'ethiopian',name:'إثيوبي',icon:'🇪🇹',
     origin:'إثيوبيا — يرغاشيف / سيدامو',
     desc:'فاكهة حمراء، مشمش، ياسمين. حموضة عالية وجسم خفيف.',
-    ratios:{light:16.7, medium:16, dark:15},
-    temps:{light:93, medium:91, dark:89},
-    grind:{light:'6', medium:'6.5', dark:'7'},
-    grindDesc:'كثيف — ابدأ من 6، لو طلع حامض ارفع نص درجة.',
-    roastNote:{
-      light:'فاكهة وحموضة عالية. الأنسب للإثيوبي.',
-      medium:'توازن حلاوة وحموضة.',
-      dark:'شوكولاتة وكراميل. يُخفف الحموضة.'
-    }
+    ratios:{light:16.7,medium:16,dark:15},
+    temps:{light:93,medium:91,dark:89},
+    grind:{light:'6',medium:'6.5',dark:'7'},
+    roastNote:{light:'أبرز نكهة للإثيوبي — فاكهة وحموضة عالية.',medium:'توازن حلاوة وحموضة.',dark:'شوكولاتة وكراميل — يخفف الحموضة.'}
   },
   {
-    id:'kenyan', name:'كيني', icon:'🇰🇪',
-    origin:'كينيا — كيرينياغا / نيروبي',
-    desc:'كشمش أسود، طماطم، حموضة نابضة جداً. جسم ثقيل ومعقد.',
-    ratios:{light:17, medium:16, dark:15},
-    temps:{light:94, medium:92, dark:90},
-    grind:{light:'6', medium:'6.5', dark:'7'},
-    grindDesc:'كثيف مثل الإثيوبي — ابدأ من 6، حساس للاستخلاص الزايد.',
-    roastNote:{
-      light:'حموضة نابضة وفاكهة حمراء واضحة.',
-      medium:'التوازن الأفضل للكيني.',
-      dark:'يُخفف الحموضة الشديدة.'
-    }
+    id:'kenyan',name:'كيني',icon:'🇰🇪',
+    origin:'كينيا — كيرينياغا',
+    desc:'كشمش أسود، طماطم، حموضة نابضة. جسم ثقيل.',
+    ratios:{light:17,medium:16,dark:15},
+    temps:{light:94,medium:92,dark:90},
+    grind:{light:'6',medium:'6.5',dark:'7'},
+    roastNote:{light:'حموضة نابضة وفاكهة حمراء واضحة.',medium:'التوازن الأفضل للكيني.',dark:'يخفف الحموضة الشديدة.'}
   },
   {
-    id:'colombian', name:'كولومبي', icon:'🇨🇴',
-    origin:'كولومبيا — هويلا / أنتيوكيا',
-    desc:'كراميل، تفاح أحمر، سكر قصب. حموضة ناعمة وجسم متوسط.',
-    ratios:{light:16, medium:15, dark:14},
-    temps:{light:92, medium:91, dark:89},
-    grind:{light:'6–6.5', medium:'6.5–7', dark:'7–7.5'},
-    grindDesc:'متوسط — ابدأ من 6.5، وسط بين الأنواع الكثيفة والثقيلة.',
-    roastNote:{
-      light:'تفاح وحموضة ناعمة.',
-      medium:'كاكاو وتوازن مثالي. الأشهر.',
-      dark:'كراميل وجسم ثقيل.'
-    }
-  },
-  {
-    id:'guatemalan', name:'غواتيمالي', icon:'🇬🇹',
-    origin:'غواتيمالا — أنتيغوا / هويهويتينانغو',
-    desc:'كاكاو، بندق، تفاح. حموضة ناعمة وجسم متوسط دافئ.',
-    ratios:{light:15.5, medium:15, dark:14},
-    temps:{light:92, medium:91, dark:88},
-    grind:{light:'6–6.5', medium:'6.5–7', dark:'7–7.5'},
-    grindDesc:'متوسط — ابدأ من 6.5، قريب من الكولومبي في الاستجابة.',
-    roastNote:{
-      light:'تفاح وحموضة ناعمة.',
-      medium:'كاكاو وبندق — التوازن الأجمل.',
-      dark:'كراميل وبسكويت.'
-    }
-  },
-  {
-    id:'indonesian', name:'إندونيسي', icon:'🇮🇩',
-    origin:'إندونيسيا — سومطرة / جاوا',
-    desc:'تراب، شوكولاتة داكنة، توابل. جسم ثقيل جداً وحموضة منخفضة.',
-    ratios:{light:15, medium:14, dark:13},
-    temps:{light:90, medium:88, dark:86},
-    grind:{light:'6.5–7', medium:'7', dark:'7.5–8'},
-    grindDesc:'أخشن — ابدأ من 7، الجسم الثقيل يحتاج جريند أكبر لتفادي الإفراط.',
-    roastNote:{
-      light:'نادراً يُحمص فاتح. نكهة غريبة تراب وعشب.',
-      medium:'الأنسب — شوكولاتة وجسم ثقيل.',
-      dark:'مكثف جداً. لمحبي القهوة القوية.'
-    }
-  },
-  {
-    id:'brazilian', name:'برازيلي', icon:'🇧🇷',
-    origin:'البرازيل — ميناس جيرايس / سيرادو',
-    desc:'شوكولاتة بالحليب، بندق، سكر. حموضة منخفضة وجسم متوسط-ثقيل.',
-    ratios:{light:15, medium:14.5, dark:14},
-    temps:{light:91, medium:90, dark:88},
-    grind:{light:'6.5–7', medium:'7', dark:'7.5–8'},
-    grindDesc:'أخشن — ابدأ من 7، معالجة Natural تحتاج جريند أكبر من الوashed.',
-    roastNote:{
-      light:'حلاوة عالية وشوكولاتة بالحليب.',
-      medium:'الكلاسيكي — بندق وكراميل.',
-      dark:'قوي وشوكولاتة داكنة.'
-    }
-  },
-  {
-    id:'yemeni', name:'يمني', icon:'🇾🇪',
+    id:'yemeni',name:'يمني',icon:'🇾🇪',
     origin:'اليمن — جبال حيمة (2300+ متر)',
-    desc:'فواكه مجففة، عنب، عسل. صنف Typica، معالجة Anaerobic بدون تجفيف شمسي مباشر. حلاوة عالية وجسم متوسط-ثقيل.',
-    ratios:{light:16, medium:15, dark:14},
-    temps:{light:92, medium:90, dark:88},
-    grind:{light:'6–6.5', medium:'6.5–7', dark:'7–7.5'},
-    grindDesc:'Anaerobic — ابدأ من 6.5، متوسط يبرز العسل والعنب بدون حموضة التخمر الزايدة.',
-    roastNote:{
-      light:'عنب وفواكه مجففة بأوضح صورة، حموضة نبيذية مميزة لمعالجة الـ Anaerobic.',
-      medium:'توازن بين الحلاوة العالية (عسل) والتعقيد الفاكهي.',
-      dark:'يُخفي تعقيد المعالجة الخاصة — غير مستحسن لهذا النوع.'
-    }
+    desc:'فواكه مجففة، عنب، عسل. صنف Typica، معالجة Anaerobic.',
+    ratios:{light:16,medium:15,dark:14},
+    temps:{light:92,medium:90,dark:88},
+    grind:{light:'6–6.5',medium:'6.5',dark:'7'},
+    roastNote:{light:'عنب وفواكه مجففة — أبرز صورة للمعالجة اللاهوائية.',medium:'توازن العسل والتعقيد الفاكهي.',dark:'غير مستحسن — يخفي تعقيد المعالجة.'}
+  },
+  {
+    id:'colombian',name:'كولومبي',icon:'🇨🇴',
+    origin:'كولومبيا — هويلا / أنتيوكيا',
+    desc:'كراميل، تفاح أحمر، سكر قصب. حموضة ناعمة.',
+    ratios:{light:16,medium:15,dark:14},
+    temps:{light:92,medium:91,dark:89},
+    grind:{light:'6–6.5',medium:'6.5–7',dark:'7–7.5'},
+    roastNote:{light:'تفاح وحموضة ناعمة.',medium:'كاكاو وتوازن — الأشهر.',dark:'كراميل وجسم ثقيل.'}
+  },
+  {
+    id:'guatemalan',name:'غواتيمالي',icon:'🇬🇹',
+    origin:'غواتيمالا — أنتيغوا',
+    desc:'كاكاو، بندق، تفاح. حموضة ناعمة دافئة.',
+    ratios:{light:15.5,medium:15,dark:14},
+    temps:{light:92,medium:91,dark:88},
+    grind:{light:'6–6.5',medium:'6.5–7',dark:'7–7.5'},
+    roastNote:{light:'تفاح وحموضة ناعمة.',medium:'كاكاو وبندق — التوازن الأجمل.',dark:'كراميل وبسكويت.'}
+  },
+  {
+    id:'indonesian',name:'إندونيسي',icon:'🇮🇩',
+    origin:'إندونيسيا — سومطرة / جاوا',
+    desc:'تراب، شوكولاتة داكنة، توابل. جسم ثقيل جداً.',
+    ratios:{light:15,medium:14,dark:13},
+    temps:{light:90,medium:88,dark:86},
+    grind:{light:'6.5–7',medium:'7',dark:'7.5–8'},
+    roastNote:{light:'نادراً فاتح — نكهة غريبة.',medium:'الأنسب — شوكولاتة وجسم ثقيل.',dark:'مكثف جداً.'}
+  },
+  {
+    id:'brazilian',name:'برازيلي',icon:'🇧🇷',
+    origin:'البرازيل — ميناس جيرايس',
+    desc:'شوكولاتة بالحليب، بندق، سكر. حموضة منخفضة.',
+    ratios:{light:15,medium:14.5,dark:14},
+    temps:{light:91,medium:90,dark:88},
+    grind:{light:'6.5–7',medium:'7',dark:'7.5–8'},
+    roastNote:{light:'حلاوة وشوكولاتة بالحليب.',medium:'بندق وكراميل — الكلاسيكي.',dark:'قوي وشوكولاتة داكنة.'}
   }
 ];
 
-// ══════════════════════════════════════
-//  METHODS
-// ══════════════════════════════════════
+// ══════════════════════
+//  METHODS — موثقة
+// ══════════════════════
+
+// Kasuya 4:6 — المصدر الرسمي:
+// 5 صبات متساوية (water ÷ 5)، كل صبة ~10 ثواني
+// فاصل 45 ثانية بين بداية كل صبة والتالية
+// الوقت: 0:00, 0:45, 1:30, 2:15, 3:00 → drawdown ~3:30
 function buildKasuyaSteps(water) {
-  const coffeeG = water / 15; // approximate, for bloom calc
-  const bloom = Math.round(coffeeG * 2); // 2x coffee weight
-  const p1 = Math.round(water * 0.4) - bloom; // remaining 40% after bloom
-  const p2 = water * 0.6;
-  const k2 = Math.round(p1);
-  const k3 = Math.round(p2 / 3);
-  const k4 = Math.round(p2 / 3);
-  const k5 = water - bloom - k2 - k3 - k4;
-  const c1=bloom, c2=bloom+k2, c3=c2+k3, c4=c3+k4, c5=water;
+  const coffeeG = water / 15;
+  const bloom = Math.round(coffeeG * 2); // 2× وزن القهوة للبلوم
+  // 40% الأولى: بلوم + صبة واحدة للباقي
+  const phase1total = Math.round(water * 0.4);
+  const p1 = phase1total - bloom; // باقي الـ 40% بعد البلوم
+  // 60% الثانية: 3 صبات متساوية
+  const phase2total = water - phase1total;
+  const p2a = Math.round(phase2total / 3);
+  const p2b = Math.round(phase2total / 3);
+  const p2c = phase2total - p2a - p2b;
   return [
-    {name:'البلوم',        action:'pour', from:0,   to:10,  cumG:c1,   desc:`صب ${bloom}g (2× وزن القهوة) في دوائر من المركز لتبليل كل القهوة.`},
-    {name:'انتظر البلوم', action:'wait', from:10,  to:45,  cumG:null,  desc:'45 ثانية بلوم — يطلع الغاز ويتشبع الجريند بالماء.'},
-    {name:'الصبة الأولى', action:'pour', from:45,  to:55,  cumG:c2,   desc:`صب ${k2}g — يكمل الـ 40% الأولى. هذه تتحكم في الحموضة والحلاوة.`},
-    {name:'انتظر',        action:'wait', from:55,  to:90,  cumG:null,  desc:'انتظر حتى تشف الأرضية تماماً.'},
-    {name:'الصبة الثانية',action:'pour', from:90,  to:100, cumG:c3,   desc:`صب ${k3}g — بداية الـ 60%. هذه تتحكم في القوة.`},
-    {name:'انتظر',        action:'wait', from:100, to:135, cumG:null,  desc:'انتظر التشفيف.'},
-    {name:'الصبة الثالثة',action:'pour', from:135, to:145, cumG:c4,   desc:`صب ${k4}g — استمرار ضبط القوة.`},
-    {name:'انتظر',        action:'wait', from:145, to:180, cumG:null,  desc:'انتظر التشفيف.'},
-    {name:'الصبة الرابعة',action:'pour', from:180, to:190, cumG:c5,   desc:`صب ${k5}g — أكمل للوزن الكامل ${water}g.`},
-    {name:'التقطير',      action:'wait', from:190, to:210, cumG:null,  desc:'انتظر التقطير الكامل. المستهدف 3:30 إجمالاً.'}
+    // البلوم: يبدأ 0:00، ينتهي 0:10، انتظار حتى 0:45
+    {name:'البلوم',        action:'pour', from:0,   to:10,  cumG:bloom,             desc:`صب ${bloom}g (2× وزن القهوة) في دوائر لتبليل كل الجريند.`},
+    {name:'انتظر',         action:'wait', from:10,  to:45,  cumG:null,              desc:'انتظر حتى تشف الأرضية وتبدأ تظهر.'},
+    // الصبة 1 من الـ 40%: 0:45
+    {name:'الصبة الأولى',  action:'pour', from:45,  to:55,  cumG:bloom+p1,          desc:`صب ${p1}g — يكمل الـ 40%. يتحكم في الحموضة والحلاوة.`},
+    {name:'انتظر',         action:'wait', from:55,  to:90,  cumG:null,              desc:'انتظر حتى تشف الأرضية تماماً.'},
+    // الـ 60%: 3 صبات كل 45 ثانية
+    {name:'الصبة الثانية', action:'pour', from:90,  to:100, cumG:bloom+p1+p2a,      desc:`صب ${p2a}g — بداية الـ 60%. يتحكم في القوة.`},
+    {name:'انتظر',         action:'wait', from:100, to:135, cumG:null,              desc:'انتظر حتى تشف الأرضية.'},
+    {name:'الصبة الثالثة', action:'pour', from:135, to:145, cumG:bloom+p1+p2a+p2b,  desc:`صب ${p2b}g — استمرار الـ 60%.`},
+    {name:'انتظر',         action:'wait', from:145, to:180, cumG:null,              desc:'انتظر التشفيف.'},
+    {name:'الصبة الرابعة', action:'pour', from:180, to:190, cumG:water,             desc:`صب ${p2c}g — أكمل للوزن الكامل ${water}g.`},
+    {name:'التقطير',        action:'wait', from:190, to:210, cumG:null,              desc:'انتظر التقطير. المستهدف 3:30 إجمالاً.'}
   ];
 }
 
+// Hoffmann — المصدر الرسمي (Hario Ambassador + timer.coffee):
+// 0:00 بلوم 2× القهوة → 0:10 سويرل → 0:45 صب حتى 60% خلال 30 ثانية
+// 1:15 صب الباقي 40% خلال 30 ثانية → 1:45 حرّك → 1:55 سويرل → drawdown 3:30
 function buildHoffmannSteps(water) {
-  const bloom = Math.round(water * 0.12);
-  const pour1end = Math.round(water * 0.6);
+  const coffeeG = water / 15;
+  const bloom = Math.round(coffeeG * 2);
+  const pour1end = Math.round(water * 0.6); // 60% بنهاية 1:15
   return [
-    {name:'البلوم',       action:'pour', from:0,   to:10,  cumG:bloom, desc:`صب ${bloom}g في دوائر لتبليل كل القهوة. ثم لفّ الـ V60 حتى يتساوى السطح.`},
-    {name:'انتظر البلوم', action:'wait', from:10,  to:45,  cumG:null,  desc:'45 ثانية بلوم. القهوة الطازجة ترتفع — هذا طبيعي.'},
-    {name:'الصب الأول',   action:'pour', from:45,  to:75,  cumG:pour1end, desc:`اصب حتى ${pour1end}g خلال 30 ثانية. دفق ثابت من المركز للخارج.`},
-    {name:'الصب الثاني',  action:'pour', from:75,  to:105, cumG:water, desc:`أكمل للوزن الكامل ${water}g خلال 30 ثانية. أبطأ وأهدأ.`},
-    {name:'حرّك',         action:'wait', from:105, to:115, cumG:null,  desc:'حرّك بملعقة دورة واحدة في الاتجاهين — يحرر القهوة من الجوانب.'},
-    {name:'لفّ ثم انتظر', action:'wait', from:115, to:210, cumG:null,  desc:'لفّ الـ V60 مرتين — يسوّي قاع القهوة للاستخلاص المتساوي. ثم انتظر التقطير حتى 3:30.'}
+    {name:'البلوم',        action:'pour', from:0,   to:10,  cumG:bloom,    desc:`صب ${bloom}g (2× القهوة) لتبليل كل الجريند بالتساوي.`},
+    {name:'سويرل',         action:'wait', from:10,  to:45,  cumG:null,     desc:'لفّ الـ V60 حتى يتساوى السطح. انتظر حتى الثانية 0:45.'},
+    {name:'الصب الأول',    action:'pour', from:45,  to:75,  cumG:pour1end, desc:`صب حتى ${pour1end}g خلال 30 ثانية. دفق ثابت دوائر من المركز.`},
+    {name:'الصب الثاني',   action:'pour', from:75,  to:105, cumG:water,    desc:`أكمل للوزن الكامل ${water}g خلال 30 ثانية. أبطأ وأهدأ.`},
+    {name:'حرّك',          action:'wait', from:105, to:115, cumG:null,     desc:'حرّك بملعقة دورة في الاتجاهين — يحرر الجريند من الجوانب.'},
+    {name:'سويرل وانتظر',  action:'wait', from:115, to:210, cumG:null,     desc:'لفّ الـ V60 مرتين لتسوية القاع. انتظر التقطير حتى 3:30.'}
   ];
 }
 
-function buildIceDripSteps(totalLiquid) {
-  const hotWater = Math.round(totalLiquid * 11/16);
-  const ice = totalLiquid - hotWater;
-  const bloom = Math.round(hotWater * 0.2);
-  const pour1 = Math.round(hotWater * 0.6);
+// Ice Drip — Japanese style:
+// نسبة الماء الحار 11/16 من الإجمالي، الباقي ثلج في الإبريق
+function buildIceDripSteps(total) {
+  const hot = Math.round(total * 11/16);
+  const ice = total - hot;
+  const coffeeG = total / 15;
+  const bloom = Math.round(coffeeG * 2);
+  const pour1 = Math.round(hot * 0.6);
   return [
-    {name:'تحضير الثلج',  action:'wait', from:0,   to:5,   cumG:null, desc:`ضع ${ice}g ثلج في الإبريق تحت الـ V60 — هذا يبرّد القهوة فوراً وقت نزولها.`},
-    {name:'البلوم',       action:'pour', from:5,   to:15,  cumG:bloom, desc:`صب ${bloom}g ماء حار في دوائر لتبليل كل القهوة.`},
-    {name:'انتظر البلوم', action:'wait', from:15,  to:45,  cumG:null,  desc:'انتظر 30 ثانية حتى تطلع الغازات.'},
-    {name:'الصب الأول',   action:'pour', from:45,  to:75,  cumG:pour1, desc:`اصب حتى ${pour1}g خلال 30 ثانية، دفق ثابت من المركز للخارج.`},
-    {name:'الصب الأخير',  action:'pour', from:75,  to:105, cumG:hotWater, desc:`أكمل للماء الحار الكامل ${hotWater}g — هذا كل الماء الحار المطلوب (الباقي ثلج).`},
-    {name:'انتظر التقطير',action:'wait', from:105, to:175, cumG:null,  desc:'انتظر حتى ينتهي كل الماء من التقطير على الثلج.'},
-    {name:'لفّ وقدّم',    action:'wait', from:175, to:185, cumG:null,  desc:'لف الإبريق قليلاً لإذابة الثلج وتجانس البرودة، ثم اسكب فوق ثلج جديد للتقديم.'}
+    {name:'الثلج',          action:'wait', from:0,   to:5,   cumG:null, desc:`ضع ${ice}g ثلج في الإبريق تحت الـ V60 قبل ما تبدأ.`},
+    {name:'البلوم',         action:'pour', from:5,   to:15,  cumG:bloom, desc:`صب ${bloom}g ماء حار في دوائر لتبليل الجريند.`},
+    {name:'انتظر',          action:'wait', from:15,  to:45,  cumG:null,  desc:'30 ثانية انتظار.'},
+    {name:'الصب الأول',     action:'pour', from:45,  to:75,  cumG:pour1, desc:`صب حتى ${pour1}g خلال 30 ثانية.`},
+    {name:'الصب الأخير',    action:'pour', from:75,  to:105, cumG:hot,   desc:`أكمل الماء الحار الكامل ${hot}g. الثلج (${ice}g) يبرد القهوة.`},
+    {name:'التقطير',        action:'wait', from:105, to:175, cumG:null,  desc:'انتظر التقطير الكامل على الثلج.'},
+    {name:'قدّم',           action:'wait', from:175, to:185, cumG:null,  desc:'لف الإبريق لتجانس البرودة. اسكب فوق ثلج جديد في الكوب.'}
   ];
 }
 
+// ══════════════════════
+//  STATE
+// ══════════════════════
 let customCoffees = JSON.parse(localStorage.getItem('v60_coffees')||'[]');
-let allCoffees = [...COFFEES, ...customCoffees];
+let allCoffees = [...COFFEES,...customCoffees];
 
-let activeCoffeeId='ethiopian', activeRoast='light', activeMethod='kasuya', waterML=300;
+let activeCoffeeId='yemeni', activeRoast='light', activeMethod='kasuya', waterML=300;
+let steps=[], totalDur=0;
 let elapsed=0, isRunning=false, timerId=null;
 let currentIdx=0, lastAlertIdx=-1;
-let steps=[], totalDur=0;
+let wakeLock=null;
 
 const getCoffee=()=>allCoffees.find(c=>c.id===activeCoffeeId)||allCoffees[0];
 const getRatio=()=>getCoffee().ratios[activeRoast];
-const getTemp=()=>getCoffee().temps?.[activeRoast]||93;
+const getTemp=()=>getCoffee().temps[activeRoast];
 const fmt=s=>`${Math.floor(s/60)}:${(s%60).toString().padStart(2,'0')}`;
 
-// ══════════════════════════════════════
+// ══════════════════════
+//  INIT SELECTS
+// ══════════════════════
+function buildCoffeeSelect(){
+  const sel=document.getElementById('sel-coffee');
+  sel.innerHTML='';
+  allCoffees.forEach(c=>{
+    const o=document.createElement('option');
+    o.value=c.id;
+    o.textContent=`${c.icon} ${c.name}`;
+    if(c.id===activeCoffeeId) o.selected=true;
+    sel.appendChild(o);
+  });
+}
+
+function onCoffeeChange(){
+  activeCoffeeId=document.getElementById('sel-coffee').value;
+  calcAll(); resetTimer();
+}
+
+// ══════════════════════
 //  CALC
-// ══════════════════════════════════════
+// ══════════════════════
 function calcAll(){
   waterML=parseInt(document.getElementById('water-ml').value)||300;
+  activeRoast=document.getElementById('sel-roast').value;
+  activeMethod=document.getElementById('sel-method').value;
+  activeCoffeeId=document.getElementById('sel-coffee').value;
+
   const c=getCoffee();
   const ratio=getRatio();
   const temp=getTemp();
@@ -520,129 +444,70 @@ function calcAll(){
 
   document.getElementById('r-coffee').textContent=coffeeG;
   document.getElementById('r-ratio').textContent=`1:${ratio}`;
-  document.getElementById('r-temp').textContent=activeMethod==='icedrip'?'95':temp;
+  document.getElementById('r-temp').textContent=activeMethod==='icedrip'?95:temp;
 
+  // Ice card
   const iceCard=document.getElementById('ice-card');
-  const waterLbl=document.getElementById('water-clbl');
+  const waterLbl=document.getElementById('water-lbl');
   if(activeMethod==='icedrip'){
     iceCard.style.display='block';
-    waterLbl.textContent='إجمالي السوائل المطلوبة (ماء حار + ثلج)';
-    const hotWater=Math.round(waterML*11/16);
-    const ice=waterML-hotWater;
-    document.getElementById('ice-hotwater').textContent=hotWater+'g';
-    document.getElementById('ice-amount').textContent=ice+'g';
-    document.getElementById('ice-final-ratio').textContent=`1:${ratio} (نهائي بعد ذوبان الثلج)`;
+    waterLbl.textContent='إجمالي السوائل (ماء حار + ثلج)';
+    const hot=Math.round(waterML*11/16);
+    document.getElementById('ice-hot').textContent=hot+'g';
+    document.getElementById('ice-ice').textContent=(waterML-hot)+'g';
   } else {
     iceCard.style.display='none';
     waterLbl.textContent='كمية الماء';
   }
 
-  const roastLabel={light:'☀️ فاتح',medium:'🌤 وسط',dark:'🌑 غامق'}[activeRoast];
-  const methodLabel={kasuya:'Kasuya 4:6',hoffmann:'Hoffmann',icedrip:'🧊 Ice Drip'}[activeMethod];
-  const totalTimeLabel=activeMethod==='icedrip'?'3:05':'3:30';
-  document.getElementById('info-panel').innerHTML=`
-    <div class="info-row"><span class="info-lbl">النوع</span><span class="info-val">${c.icon} ${c.name}</span></div>
-    <div class="info-divider"></div>
-    <div class="info-row"><span class="info-lbl">الحمص</span><span class="info-val">${roastLabel}</span></div>
-    <div class="info-row"><span class="info-lbl">الملاحظة</span><span class="info-val" style="font-size:.78rem;color:var(--mu);font-weight:600;">${c.roastNote?.[activeRoast]||''}</span></div>
-    <div class="info-divider"></div>
-    <div class="info-row"><span class="info-lbl">الطريقة</span><span class="info-val amber">${methodLabel}</span></div>
-    <div class="info-row"><span class="info-lbl">الوقت الكلي</span><span class="info-val gold">${totalTimeLabel}</span></div>
+  // Info card
+  const g=c.grind[activeRoast];
+  const methodNames={kasuya:'Kasuya 4:6',hoffmann:'Hoffmann',icedrip:'Ice Drip'};
+  const methodDescs={
+    kasuya:'5 صبات — كل صبة ~10 ثواني، فاصل 45 ثانية. أول 40% يتحكم في الطعم، آخر 60% في القوة.',
+    hoffmann:'بلوم → سويرل → صبتان متواصلتان (0:45–1:45) → حرّك → سويرل → drawdown 3:30.',
+    icedrip:'نسبة أقوى بماء حار فقط، يكملها الثلج الذائب. نتيجة مثلجة فورية بدون تخفيف.'
+  };
+  document.getElementById('info-card').innerHTML=`
+    <div class="grind-highlight">Fellow: ${g}</div><br>
+    <b>${c.roastNote[activeRoast]}</b><br>
+    <b>${methodNames[activeMethod]}:</b> ${methodDescs[activeMethod]}<br>
+    <small style="color:var(--dim);">حامض؟ ارفع رقم الطحنة · مر؟ انزل رقم الطحنة · هدف: 2:30–3:30</small>
   `;
 
-  let methodText;
-  if(activeMethod==='kasuya'){
-    methodText=`<b>Kasuya 4:6</b> — وصفة بطل العالم 2016. 5 صبات كل 45 ثانية. أول 40% تتحكم في الحموضة والحلاوة، وآخر 60% تتحكم في القوة. جرّب: لو تبيها أحلى ← كبّر الصبة الأولى. لو تبيها أقوى ← قلّل عدد صبات الـ 60%.`;
-  } else if(activeMethod==='hoffmann'){
-    methodText=`<b>Hoffmann</b> — وصفة بطل العالم 2007. بلوم ثم صبتين متواصلتين مع تحريك ولفّة في النهاية. تعطي كوب نظيف ومتوازن جداً. الأسهل للمبتدئين.`;
-  } else {
-    methodText=`<b>Ice Drip</b> — قهوة مثلجة طريقة يابانية. تصب ماء حار أقل من المعتاد (نسبة أقوى) ويكمل الثلج الذائب الباقي — كذا تحصل نفس قوة القهوة العادية بس مثلجة فوراً بدون تخفيف. الطحنة أنعم شوي من الحار لتعويض البرودة.`;
-  }
-  document.getElementById('method-info').innerHTML=methodText;
-
-  const g=c.grind||{light:'4–5',medium:'5–6',dark:'5.5–6.5'};
-  const gActive=g[activeRoast];
-  document.getElementById('grind-row').innerHTML=`
-    <div class="grind-chip${activeRoast==='light'?' sel':''}"><div class="gnum">${g.light}</div><div class="groast">☀️ فاتح</div></div>
-    <div class="grind-chip${activeRoast==='medium'?' sel':''}"><div class="gnum">${g.medium}</div><div class="groast">🌤 وسط</div></div>
-    <div class="grind-chip${activeRoast==='dark'?' sel':''}"><div class="gnum">${g.dark}</div><div class="groast">🌑 غامق</div></div>
-  `;
-  const iceGrindNote=activeMethod==='icedrip'?' للآيس درب: اطحن درجة واحدة أنعم من رقم الحار لتعويض البرودة والتخفيف.':'';
-  document.getElementById('grind-tip').innerHTML=
-    `<b>إعداد الحين: ${gActive}</b> على Fellow — ${c.grindDesc||'مثل ملح البحر الناعم.'}${iceGrindNote}<br>
-    <b>حامض (sour)؟</b> ارفع رقم (أخشن) ← &nbsp;&nbsp;<b>مر (bitter)؟</b> انزل رقم (أناعم) ←&nbsp;&nbsp;<b>الوقت المثالي:</b> 2:30–3:30`;
-
+  // Build steps
   if(activeMethod==='kasuya') steps=buildKasuyaSteps(waterML);
   else if(activeMethod==='hoffmann') steps=buildHoffmannSteps(waterML);
   else steps=buildIceDripSteps(waterML);
-  totalDur = steps.reduce((mx,s)=>Math.max(mx,s.to),0);
+  totalDur=steps.reduce((mx,s)=>Math.max(mx,s.to),0);
 }
 
-function renderChips(){
-  const bar=document.getElementById('coffee-chips');
-  bar.innerHTML='';
-  allCoffees.forEach(c=>{
-    const b=document.createElement('button');
-    b.className='pill'+(c.id===activeCoffeeId?' active':'');
-    b.textContent=`${c.icon} ${c.name}`;
-    b.onclick=()=>{activeCoffeeId=c.id;renderChips();calcAll();resetTimer();};
-    bar.appendChild(b);
-  });
-}
-
-function selRoast(el){
-  activeRoast=el.dataset.roast;
-  document.querySelectorAll('#roast-chips .pill').forEach(p=>p.classList.remove('active'));
-  el.classList.add('active'); calcAll(); resetTimer();
-}
-function selMethod(el){
-  activeMethod=el.dataset.method;
-  document.querySelectorAll('#method-chips .pill').forEach(p=>p.classList.remove('active'));
-  el.classList.add('active'); calcAll(); resetTimer();
-}
-
-// ══════════════════════════════════════
-//  BREW + TIMER
-// ══════════════════════════════════════
-// Wake Lock
-let wakeLock = null;
-async function requestWakeLock(){
-  try{
-    if('wakeLock' in navigator){
-      wakeLock = await navigator.wakeLock.request('screen');
-    }
-  } catch(e){ /* not supported or denied, continue silently */ }
-}
-async function releaseWakeLock(){
-  if(wakeLock){ await wakeLock.release(); wakeLock=null; }
-}
-
-function startBrew(){
+// ══════════════════════
+//  BREW
+// ══════════════════════
+async function startBrew(){
   calcAll();
   const ts=document.getElementById('tsec');
   ts.style.display='block';
-  document.getElementById('float-timer').classList.add('show');
   ts.scrollIntoView({behavior:'smooth'});
-  renderStepsList();
-  updateFloatTimer(0);
-  requestWakeLock();
+  renderSteps();
+  // Wake Lock
+  try{ if('wakeLock' in navigator) wakeLock=await navigator.wakeLock.request('screen'); }catch(e){}
 }
 
 function toggleTimer(){
   if(isRunning){
-    clearInterval(timerId);isRunning=false;
+    clearInterval(timerId); isRunning=false;
     document.getElementById('sbtn').textContent='▶';
   } else {
     isRunning=true;
     document.getElementById('sbtn').textContent='⏸';
     timerId=setInterval(tick,1000);
-    requestWakeLock();
   }
 }
 
 function tick(){
   elapsed++;
-  document.getElementById('ft-time').textContent=fmt(elapsed);
 
   let idx=0;
   for(let i=0;i<steps.length;i++){
@@ -653,56 +518,54 @@ function tick(){
 
   if(idx!==currentIdx){
     currentIdx=idx;
-    renderStepsList();
+    renderSteps();
+    updateActiveTimer(idx); // حدّث الوقت فور ما يتغير الكرت
     document.getElementById(`sc${idx}`)?.scrollIntoView({behavior:'smooth',block:'center'});
+  } else {
+    updateActiveTimer(idx); // نفس الخطوة — بس حدّث الوقت
   }
+
   if(idx!==lastAlertIdx){
     lastAlertIdx=idx;
     const s=steps[idx];
     const msg=s.action==='pour'
       ?(s.cumG?`💧 ${s.name} — اصب لـ ${s.cumG}g لين ${fmt(s.to)}`:`💧 ${s.name} — اصب لـ ${waterML}g`)
-      :`⏸ ${s.name} — انتظر لين ${fmt(s.to)}`;
+      :`⏸ ${s.name} — لين ${fmt(s.to)}`;
     showAlert(msg);
   }
 
-  updateFloatTimer(idx);
-
   if(elapsed>=totalDur){
-    clearInterval(timerId);isRunning=false;
+    clearInterval(timerId); isRunning=false;
     document.getElementById('sbtn').textContent='✓';
-    document.getElementById('ft-action').className='ft-action f';
-    document.getElementById('ft-action').textContent='انتهى 🎉';
-    releaseWakeLock();
     showAlert('🎉 انتهى! استمتع بقهوتك.');
+    if(wakeLock){wakeLock.release();wakeLock=null;}
   }
 }
 
-function updateFloatTimer(idx){
+function updateActiveTimer(idx){
+  const timeEl=document.getElementById('active-time');
+  const pbEl=document.getElementById('active-pbf');
+  if(!timeEl||!pbEl) return;
   const s=steps[idx];
-  const aEl=document.getElementById('ft-action');
-  if(!s||elapsed>=totalDur) return;
-  if(s.action==='pour'){
-    aEl.className='ft-action p';
-    aEl.textContent='💧 صب';
-  } else {
-    aEl.className='ft-action w';
-    aEl.textContent='⏸ انتظر';
-  }
+  if(!s) return;
+  timeEl.textContent=fmt(elapsed);
+  const dur=s.to-s.from;
+  const pct=dur>0?Math.min((elapsed-s.from)/dur*100,100):100;
+  pbEl.style.width=pct+'%';
 }
 
-function resetTimer(){
+async function resetTimer(){
   clearInterval(timerId);
-  elapsed=0;isRunning=false;currentIdx=0;lastAlertIdx=-1;
-  document.getElementById('sbtn').textContent='▶';
-  document.getElementById('ft-time').textContent='0:00';
-  document.getElementById('ft-action').className='ft-action p';
-  document.getElementById('ft-action').textContent='جاهز';
+  elapsed=0; isRunning=false; currentIdx=0; lastAlertIdx=-1;
   document.getElementById('abar').classList.remove('show');
-  releaseWakeLock();
-  renderStepsList();
+  if(wakeLock){await wakeLock.release();wakeLock=null;}
+  renderSteps();
 }
 
-function renderStepsList(){
+// ══════════════════════
+//  RENDER STEPS
+// ══════════════════════
+function renderSteps(){
   const c=document.getElementById('steps-list');
   c.innerHTML='';
   steps.forEach((s,i)=>{
@@ -710,24 +573,30 @@ function renderStepsList(){
     const done=i<currentIdx||(elapsed>=totalDur);
     const isWait=s.action==='wait';
     const div=document.createElement('div');
-    div.className='sc'+(isActive?' active':done?' done':'')+(isWait?' is-wait':'');
+    div.className='sc'+(isActive?' active':'')+(done?' done':'')+(isWait?' is-wait':'');
     div.id=`sc${i}`;
 
-    const chip=isWait
-      ?'<span class="achip wait">⏸ انتظر</span>'
-      :'<span class="achip pour">💧 صب</span>';
-
-    const tgt=isWait?'':`<span class="sc-tgt">${s.cumG!==null?s.cumG:waterML}g</span>`;
+    const dur=s.to-s.from;
+    const elapsed_in_step=isActive?Math.max(0,elapsed-s.from):0;
+    const pct=isActive&&dur>0?Math.min(elapsed_in_step/dur*100,100):0;
 
     div.innerHTML=`
-      <div class="sc-row">
-        <span class="sc-time">${fmt(s.from)}–${fmt(s.to)}</span>
-        ${chip}
-        <span class="sc-name">${done&&!isActive?'✓ ':''}${s.name}</span>
-        ${isActive?'<span class="sc-now">الآن</span>':''}
-        ${tgt}
+      <div class="sc-top">
+        <span class="sc-chip ${s.action}">${s.action==='pour'?'💧 صب':'⏸ انتظر'}</span>
+        <span class="sc-title">${done&&!isActive?'✓ ':''}${s.name}</span>
+        <span class="sc-timing">${fmt(s.from)}–${fmt(s.to)}</span>
       </div>
+      ${s.cumG!==null?`<div class="sc-target">🎯 اصب لـ ${s.cumG}g على الميزان (تراكمي)</div>`:''}
       <div class="sc-desc">${s.desc}</div>
+      <div class="sc-timer">
+        <div class="st-time" id="active-time">${fmt(elapsed)}</div>
+        <div class="st-pb-wrap">
+          <div class="st-label">${fmt(s.from)} ← ${fmt(s.to)}</div>
+          <div class="st-pb"><div class="st-pbf ${s.action}" id="active-pbf" style="width:${pct}%"></div></div>
+        </div>
+        <button class="st-btn go" id="sbtn" onclick="toggleTimer()">${isRunning?'⏸':'▶'}</button>
+        <button class="st-btn reset" onclick="resetTimer()">↺</button>
+      </div>
     `;
     c.appendChild(div);
   });
@@ -735,36 +604,43 @@ function renderStepsList(){
 
 function showAlert(msg){
   const el=document.getElementById('abar');
-  el.textContent=msg;el.classList.add('show');
+  el.textContent=msg; el.classList.add('show');
   setTimeout(()=>el.classList.remove('show'),5000);
 }
 
-// ══════════════════════════════════════
+// ══════════════════════
 //  COFFEES PAGE
-// ══════════════════════════════════════
-function renderCoffeeGrid(){
-  const g=document.getElementById('coffee-grid');
-  g.innerHTML='';
-  allCoffees.forEach(c=>{
-    const isC=customCoffees.find(x=>x.id===c.id);
-    const card=document.createElement('div');
-    card.className='ccard';
-    card.innerHTML=`
-      <div class="cicon">${c.icon}</div>
-      <div class="cinfo">
-        <h3>${isC?`<span class="bcustom">مخصص</span>`:''}${c.name}</h3>
-        <p><strong>${c.origin}</strong><br>${c.desc}</p>
-        <div class="cmeta">☀️ 1:${c.ratios.light} · 🌤 1:${c.ratios.medium} · 🌑 1:${c.ratios.dark}</div>
-        <div class="cmeta" style="color:var(--blue);margin-top:2px;">Fellow ☀️${c.grind?.light||'4-5'} · 🌤${c.grind?.medium||'5-6'} · 🌑${c.grind?.dark||'5.5-6.5'}</div>
-      </div>`;
-    card.onclick=()=>{activeCoffeeId=c.id;showPage('brew');renderChips();calcAll();resetTimer();};
-    g.appendChild(card);
+// ══════════════════════
+function renderCoffeeList(){
+  const c=document.getElementById('coffee-list');
+  c.innerHTML='';
+  allCoffees.forEach(cf=>{
+    const isC=customCoffees.find(x=>x.id===cf.id);
+    const div=document.createElement('div');
+    div.className='cc';
+    div.innerHTML=`
+      <div class="cc-top">
+        <span class="cc-icon">${cf.icon}</span>
+        <div>
+          <div class="cc-name">${isC?'<span class="custom-tag">مخصص</span>':''}${cf.name}</div>
+          <div class="cc-sub">${cf.origin}</div>
+        </div>
+      </div>
+      <div class="cc-sub">${cf.desc}</div>
+      <div class="cc-grind">Fellow: ☀️${cf.grind?.light||'6'} · 🌤${cf.grind?.medium||'6.5'} · 🌑${cf.grind?.dark||'7'} &nbsp;|&nbsp; نسبة: ☀️1:${cf.ratios.light} · 🌤1:${cf.ratios.medium} · 🌑1:${cf.ratios.dark}</div>
+    `;
+    div.onclick=()=>{
+      activeCoffeeId=cf.id;
+      document.getElementById('sel-coffee').value=cf.id;
+      showPage('brew'); calcAll(); resetTimer();
+    };
+    c.appendChild(div);
   });
 }
 
-// ══════════════════════════════════════
+// ══════════════════════
 //  ADD COFFEE
-// ══════════════════════════════════════
+// ══════════════════════
 function saveCoffee(){
   const name=document.getElementById('f-name').value.trim();
   if(!name){showToast('أدخل اسم القهوة');return;}
@@ -780,42 +656,42 @@ function saveCoffee(){
     },
     temps:{light:93,medium:91,dark:89},
     grind:{
-      light:document.getElementById('f-gl').value||'4–5',
-      medium:document.getElementById('f-gm').value||'5–6',
-      dark:document.getElementById('f-gd').value||'5.5–6.5'
+      light:document.getElementById('f-gl').value||'6',
+      medium:document.getElementById('f-gm').value||'6.5',
+      dark:document.getElementById('f-gd').value||'7'
     },
-    grindDesc:document.getElementById('f-gdesc').value||'',
     roastNote:{light:'',medium:'',dark:''}
   };
   customCoffees.push(nc);
   localStorage.setItem('v60_coffees',JSON.stringify(customCoffees));
   allCoffees=[...COFFEES,...customCoffees];
-  ['f-name','f-icon','f-origin','f-desc','f-light','f-medium','f-dark','f-temp','f-gl','f-gm','f-gd','f-gdesc']
+  ['f-name','f-icon','f-origin','f-desc','f-light','f-medium','f-dark','f-temp','f-gl','f-gm','f-gd']
     .forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-  showToast('✓ تم حفظ القهوة!');
-  renderChips();
+  buildCoffeeSelect();
+  showToast('✓ تم الحفظ!');
   setTimeout(()=>showPage('coffees'),1200);
 }
 
-// ══════════════════════════════════════
+// ══════════════════════
 //  PAGES
-// ══════════════════════════════════════
+// ══════════════════════
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.ntab').forEach(t=>t.classList.remove('active'));
   document.getElementById(`page-${id}`).classList.add('active');
   document.querySelectorAll('.ntab')[['brew','coffees','add'].indexOf(id)].classList.add('active');
-  if(id==='coffees')renderCoffeeGrid();
-  if(id==='brew'){renderChips();calcAll();}
+  if(id==='coffees') renderCoffeeList();
 }
+
 function showToast(msg){
   const t=document.getElementById('toast');
-  t.textContent=msg;t.classList.add('show');
+  t.textContent=msg; t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),2500);
 }
 
 // INIT
-renderChips();calcAll();
+buildCoffeeSelect();
+calcAll();
 </script>
 </body>
 </html>
