@@ -104,6 +104,8 @@ select option{background:#fff;}
 .sc.active .sc-timer{display:flex;align-items:center;gap:12px;}
 .sc.active.is-wait .sc-timer{border-top-color:rgba(220,38,38,.2);}
 .st-time{font-size:2rem;font-weight:800;color:var(--text);line-height:1;min-width:66px;}
+.st-weight{font-size:.85rem;font-weight:800;color:var(--blue);margin-top:3px;}
+.sc.is-wait .st-weight{color:var(--red);}
 .st-pb-wrap{flex:1;}
 .st-label{font-size:.72rem;font-weight:700;color:var(--muted);margin-bottom:4px;}
 .st-pb{height:5px;background:var(--border);border-radius:3px;overflow:hidden;}
@@ -516,14 +518,15 @@ function tick(){
   }
   if(elapsed>=totalDur) idx=steps.length-1;
 
+  // لما تتغير الخطوة: أعد الرسم
   if(idx!==currentIdx){
     currentIdx=idx;
     renderSteps();
-    updateActiveTimer(idx); // حدّث الوقت فور ما يتغير الكرت
     document.getElementById(`sc${idx}`)?.scrollIntoView({behavior:'smooth',block:'center'});
-  } else {
-    updateActiveTimer(idx); // نفس الخطوة — بس حدّث الوقت
   }
+
+  // دايماً حدّث الوقت — بغض النظر عن تغيير الخطوة
+  updateActiveTimer(idx);
 
   if(idx!==lastAlertIdx){
     lastAlertIdx=idx;
@@ -543,8 +546,8 @@ function tick(){
 }
 
 function updateActiveTimer(idx){
-  const timeEl=document.getElementById('active-time');
-  const pbEl=document.getElementById('active-pbf');
+  const timeEl=document.getElementById(`active-time-${idx}`);
+  const pbEl=document.getElementById(`active-pbf-${idx}`);
   if(!timeEl||!pbEl) return;
   const s=steps[idx];
   if(!s) return;
@@ -566,8 +569,26 @@ async function resetTimer(){
 //  RENDER STEPS
 // ══════════════════════
 function renderSteps(){
-  const c=document.getElementById('steps-list');
-  c.innerHTML='';
+  const container=document.getElementById('steps-list');
+
+  // لو الخطوات موجودة بنفس العدد — بس حدّث الكلاسات، لا تعيد البناء
+  const existing=container.querySelectorAll('.sc');
+  if(existing.length===steps.length){
+    steps.forEach((s,i)=>{
+      const div=existing[i];
+      const isActive=i===currentIdx&&elapsed<totalDur;
+      const done=i<currentIdx||(elapsed>=totalDur);
+      const isWait=s.action==='wait';
+      div.className='sc'+(isActive?' active':'')+(done?' done':'')+(isWait?' is-wait':'');
+      // حدّث حالة زر التشغيل لو موجود
+      const btn=div.querySelector('#sbtn');
+      if(btn) btn.textContent=isRunning?'⏸':'▶';
+    });
+    return;
+  }
+
+  // أول مرة أو تغيير في عدد الخطوات — ابنِ من جديد
+  container.innerHTML='';
   steps.forEach((s,i)=>{
     const isActive=i===currentIdx&&elapsed<totalDur;
     const done=i<currentIdx||(elapsed>=totalDur);
@@ -575,30 +596,26 @@ function renderSteps(){
     const div=document.createElement('div');
     div.className='sc'+(isActive?' active':'')+(done?' done':'')+(isWait?' is-wait':'');
     div.id=`sc${i}`;
-
-    const dur=s.to-s.from;
-    const elapsed_in_step=isActive?Math.max(0,elapsed-s.from):0;
-    const pct=isActive&&dur>0?Math.min(elapsed_in_step/dur*100,100):0;
-
     div.innerHTML=`
       <div class="sc-top">
         <span class="sc-chip ${s.action}">${s.action==='pour'?'💧 صب':'⏸ انتظر'}</span>
         <span class="sc-title">${done&&!isActive?'✓ ':''}${s.name}</span>
         <span class="sc-timing">${fmt(s.from)}–${fmt(s.to)}</span>
       </div>
-      ${s.cumG!==null?`<div class="sc-target">🎯 اصب لـ ${s.cumG}g على الميزان (تراكمي)</div>`:''}
       <div class="sc-desc">${s.desc}</div>
       <div class="sc-timer">
-        <div class="st-time" id="active-time">${fmt(elapsed)}</div>
+        <div>
+          <div class="st-time" id="active-time-${i}">${fmt(elapsed)}</div>
+          ${s.cumG!==null?`<div class="st-weight">${s.cumG}g</div>`:''}
+        </div>
         <div class="st-pb-wrap">
           <div class="st-label">${fmt(s.from)} ← ${fmt(s.to)}</div>
-          <div class="st-pb"><div class="st-pbf ${s.action}" id="active-pbf" style="width:${pct}%"></div></div>
+          <div class="st-pb"><div class="st-pbf ${s.action}" id="active-pbf-${i}" style="width:0%"></div></div>
         </div>
         <button class="st-btn go" id="sbtn" onclick="toggleTimer()">${isRunning?'⏸':'▶'}</button>
-        <button class="st-btn reset" onclick="resetTimer()">↺</button>
       </div>
     `;
-    c.appendChild(div);
+    container.appendChild(div);
   });
 }
 
