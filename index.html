@@ -150,6 +150,7 @@ textarea{resize:vertical;min-height:60px;line-height:1.5;}
   .frow{grid-template-columns:1fr;}
 }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nosleep.js/0.12.0/NoSleep.min.js"></script>
 </head>
 <body>
 
@@ -403,7 +404,15 @@ let activeCoffeeId='yemeni', activeRoast='light', activeMethod='kasuya', waterML
 let steps=[], totalDur=0;
 let elapsed=0, isRunning=false, timerId=null;
 let currentIdx=0, lastAlertIdx=-1;
-let wakeLock=null;
+let noSleep = null;
+
+function enableNoSleep(){
+  if(!noSleep) noSleep = new NoSleep();
+  noSleep.enable();
+}
+function disableNoSleep(){
+  if(noSleep) noSleep.disable();
+}
 
 const getCoffee=()=>allCoffees.find(c=>c.id===activeCoffeeId)||allCoffees[0];
 const getRatio=()=>getCoffee().ratios[activeRoast];
@@ -494,7 +503,7 @@ async function startBrew(){
   ts.scrollIntoView({behavior:'smooth'});
   renderSteps();
   // Wake Lock
-  try{ if('wakeLock' in navigator) wakeLock=await navigator.wakeLock.request('screen'); }catch(e){}
+  enableNoSleep();
 }
 
 function toggleTimer(){
@@ -504,7 +513,7 @@ function toggleTimer(){
   } else {
     isRunning=true;
     document.getElementById('sbtn').textContent='⏸';
-    timerId=setInterval(tick,1000);
+    timerId=setInterval(tick,1000); enableNoSleep();
   }
 }
 
@@ -541,7 +550,7 @@ function tick(){
     clearInterval(timerId); isRunning=false;
     document.getElementById('sbtn').textContent='✓';
     showAlert('🎉 انتهى! استمتع بقهوتك.');
-    if(wakeLock){wakeLock.release();wakeLock=null;}
+    disableNoSleep();
   }
 }
 
@@ -561,7 +570,7 @@ async function resetTimer(){
   clearInterval(timerId);
   elapsed=0; isRunning=false; currentIdx=0; lastAlertIdx=-1;
   document.getElementById('abar').classList.remove('show');
-  if(wakeLock){await wakeLock.release();wakeLock=null;}
+  disableNoSleep();
   renderSteps();
 }
 
